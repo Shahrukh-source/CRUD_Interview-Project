@@ -3,11 +3,16 @@ const Form = require("../models/Form")
 
 exports.updateForm = async(req,res)=>{
     try{
-        const {name, lastname, email, mobilenumber, project} = req.body
-        const update = await Form.findByIdAndUpdate({name, lastname, email, mobilenumber, project,_id:name,_id:lastname,})
+        const {id} = req.params;
+        const {name, lastname, email, mobilenumber, project} = req.body 
+        const form = await Todo.findByIdAndUpdate(
+            {_id:id},
+            {name, lastname, email, mobilenumber, project, updatedAt: Date.now()},
+        )
+       
         res.status(200).json({
             success:true,
-            data:update,
+            data:form,
             message:"successfully updated"
 
         })

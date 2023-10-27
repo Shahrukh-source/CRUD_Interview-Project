@@ -3,8 +3,8 @@ const Form = require("../models/Form")
 
 exports.deleteForm = async(req,res)=>{
     try{
-const {_id} = req.prams
-const deleteForm = await Form.findByIdAndDelete({_id:id})
+const {id} = req.prams
+const deleteForm = await Form.findByIdAndDelete({id})
 res.status(200).json({
     success:true,
     data:deleteForm,

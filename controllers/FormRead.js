@@ -2,8 +2,8 @@ const Form = require("../models/Form")
 
 exports.Formread = async(req,res)=>{
     try{
-        const {_id} = req.params
-        const formread = await Form.findById({_id})
+        
+        const formread = await Form.find({_id})
 
         res.status(200).json({
             success:true,
